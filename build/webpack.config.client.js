@@ -20,7 +20,7 @@ const devServer = {
   port: 8000,
   host: '0.0.0.0',
   overlay: {
-    errors: true,
+    errors: true
   },
   hot: true
 }
@@ -29,18 +29,18 @@ let config
 
 if (isDev) {
   config = merge(baseConfig, {
-    devtool : '#cheap-module-eval-source-map',
+    devtool: '#cheap-module-eval-source-map',
     module: {
       rules: [
         {
           test: /\.styl/,
           use: [
-            'vue-style-loader',   // style-loader 不会热更替css  vue-style-loader可以保存css同时热更替
+            'vue-style-loader', // style-loader 不会热更替css  vue-style-loader可以保存css同时热更替
             'css-loader',
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'stylus-loader'
@@ -74,7 +74,7 @@ if (isDev) {
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
+                  sourceMap: true
                 }
               },
               'stylus-loader'
