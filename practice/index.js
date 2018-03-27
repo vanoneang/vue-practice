@@ -2,4 +2,10 @@
 // import './lifecycle/index'
 // import './data-binding/index'
 // import './computed/index'
-import './directive/index'
+// import './directive/index'
+// import './computed/define'
+// import './computed/extend.js'
+// import './computed/v-model'
+
+// import './computed/features'
+import './computed/render'

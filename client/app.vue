@@ -2,21 +2,43 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <todo></todo>
+    <!-- <todo></todo> -->
+    <router-view />
+    {{fullName}} {{count}}
     <Footer></Footer>
   </div>
 </template>
 
 <script>
+import {
+  mapState
+  // mapGetters
+} from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue'
 
 export default {
   components: {
     Header,
-    Footer,
-    Todo
+    Footer
+  },
+  mounted () {
+    console.log(this.$store)
+    this.$store.dispatch('updateCountAsync', {
+      num: 5,
+      time: 2000
+    })
+  },
+  computed: {
+    ...mapState({
+      count: 'count'
+    }),
+    // count () {
+    //   return this.$store.state.count
+    // },
+    fullName () {
+      return this.$store.getters.fullName
+    }
   }
 }
 </script>
