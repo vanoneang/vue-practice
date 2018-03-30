@@ -4,15 +4,17 @@
     <Header></Header>
     <!-- <todo></todo> -->
     <router-view />
-    {{fullName}} {{count}}
+    <p> {{fullName}} {{count}}</p>
+    <p></p>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import {
-  mapState
-  // mapGetters
+  mapState,
+  mapGetters
+  // mapActions
 } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
@@ -22,23 +24,18 @@ export default {
     Header,
     Footer
   },
-  mounted () {
-    console.log(this.$store)
-    this.$store.dispatch('updateCountAsync', {
-      num: 5,
-      time: 2000
-    })
-  },
+  // mounted () {
+  //   this.updateCountAsync({
+  //     num: 5,
+  //     time: 2000
+  //   })
+  // },
   computed: {
-    ...mapState({
-      count: 'count'
-    }),
-    // count () {
-    //   return this.$store.state.count
-    // },
-    fullName () {
-      return this.$store.getters.fullName
-    }
+    ...mapState(['count']),
+    ...mapGetters(['fullName'])
+  },
+  methods: {
+    // ...mapActions(['updateCountAsync'])
   }
 }
 </script>
