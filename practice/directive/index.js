@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-/* eslint-disable no-new */
+/* eslint-disable no-new */ // 原生指令
 new Vue({
   el: '#root',
   template: `

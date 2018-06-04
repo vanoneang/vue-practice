@@ -30,4 +30,5 @@ new Vue({
       <com-one v-model="value"></com-one>
     </div>
   `
+  // <com-one :vulue="value" @input="value = argument[0]></com-one>"
 })

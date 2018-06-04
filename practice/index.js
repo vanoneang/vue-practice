@@ -4,8 +4,8 @@
 // import './computed/index'
 // import './directive/index'
 // import './computed/define'
-// import './computed/extend.js'
-// import './computed/v-model'
+// import './component/extend.js'
+import './computed/v-model'
 
 // import './computed/features'
-import './computed/render'
+// import './computed/render'

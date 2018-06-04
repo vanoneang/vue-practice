@@ -22,7 +22,7 @@ new Vue({
       a: '1'
     }
   },
-  computed: {
+  computed: { // 直接用于计算后显示
     getName: {
       get () {
         return `${this.firstName} ${this.lastName}`
@@ -34,9 +34,15 @@ new Vue({
       }
     }
   },
-  watch: { // 监听到了某个值的变化，给后台发请求
-    firstName (newName, oldName) {
-      this.fullName = newName + ' ' + this.lastName
+  watch: { // 监听到了某个值的变化，给后台发请求，默认情况下watch在页面初始化渲染的时候是不会执行的，除非这么用
+    // firstName (newName, oldName) {
+    //   this.fullName = newName + ' ' + this.lastName
+    // },
+    firstName: {
+      handler (newName, oldName) {
+        this.fullName = newName + ' ' + this.lastName
+      },
+      immediate: true // 初始化执行
     },
     'obj.a' () { // 如果想要监听一个对象的属性的变化
       console.log('changed')

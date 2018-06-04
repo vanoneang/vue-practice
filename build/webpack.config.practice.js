@@ -18,10 +18,14 @@ const defaultPluins = [
 const devServer = {
   port: 8080,
   host: '0.0.0.0',
-  overlay: {
+  overlay: { // error 显示到网页上
     errors: true
   },
-  hot: true
+  historyApiFallback: {
+    index: '/public/index.html'
+  },
+  open: true, // 自动打开浏览器
+  hot: true // 热更替
 }
 
 let config
@@ -48,7 +52,6 @@ config = merge(baseConfig, {
     ]
   },
   devServer,
-  // import Vue from 'vue'
   resolve: {
     alias: {
       'vue': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js')

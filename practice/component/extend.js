@@ -1,6 +1,8 @@
 import Vue from 'vue'
 
+// 初始化vue,带一些参数,我的理解
 const compoent = {
+  name: 'Parent',
   props: {
     active: Boolean,
     propOne: String
@@ -18,7 +20,7 @@ const compoent = {
     }
   },
   mounted () {
-    console.log('compoent mounted')
+    console.log('父组件 mounted')
   },
   methods: {
     handleChange () {
@@ -37,9 +39,9 @@ new CompVue({
     propOne: 'test'
   },
   mounted () {
-    console.log('comp mounted')
+    console.log('子组件 mounted')
   },
   data: {
-    text: 132
+    text: '子类覆盖父类'
   }
 })

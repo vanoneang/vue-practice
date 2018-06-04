@@ -30,6 +30,14 @@ app.$mount('#root')
 //   console.log(`test emited ${a} ${b}`)
 // })
 
+const unWatch = app.$watch('text', (newText, oldText) => {
+  console.log(`${newText},${oldText}`)
+})
+
+setTimeout(() => {
+  unWatch() // 销毁watch
+}, 2000)
+
 // // 触发事件
 // app.$emit('test', 1, 2)
 
