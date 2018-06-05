@@ -3,7 +3,7 @@
 
 # 使用方法
 ```
-git clone https://github.com/vanoneang/vue-practice.git
+git clone https://github.com/vanoneang/vue-todolist.git
 ```
 进入项目目录，运行
 ```
