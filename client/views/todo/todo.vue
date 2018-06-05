@@ -27,6 +27,17 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      // 这样能取到this
+      console.log(vm.$route.path)
+    })
+  },
+  beforeRouteLeave (to, from, next) {
+    if (global.confirm('are you sure?')) {
+      next()
+    }
+  },
   data () {
     return {
       todos: [],

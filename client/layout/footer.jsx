@@ -3,12 +3,12 @@ import '../assets/styles/footer.styl'
 export default {
   data () {
     return {
-      author: 'Jokcy'
+      author: 'Evan Wang'
     }
   },
   render () {
     return (
-      <div id="footer">
+      <div id='footer'>
         <span>Written by {this.author}</span>
       </div>
     )

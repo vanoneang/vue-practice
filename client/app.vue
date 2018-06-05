@@ -2,10 +2,14 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <!-- <todo></todo> -->
-    <router-view />
-    <p> {{fullName}} {{count}}</p>
-    <p></p>
+    <p>{{count}}</p>
+    <router-link :to="{name:'app'}">app</router-link>
+    <router-link to="/login">login</router-link>
+    <transition name="fade">
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"/>
+      </keep-alive>
+    </transition>
     <Footer></Footer>
   </div>
 </template>
@@ -13,8 +17,8 @@
 <script>
 import {
   mapState,
-  mapGetters
-  // mapActions
+  mapGetters,
+  mapActions
 } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
@@ -24,18 +28,18 @@ export default {
     Header,
     Footer
   },
-  // mounted () {
-  //   this.updateCountAsync({
-  //     num: 5,
-  //     time: 2000
-  //   })
-  // },
+  mounted () {
+    this.updateCountAsync({
+      num: 2018,
+      time: 2000
+    })
+  },
   computed: {
     ...mapState(['count']),
     ...mapGetters(['fullName'])
   },
   methods: {
-    // ...mapActions(['updateCountAsync'])
+    ...mapActions(['updateCountAsync'])
   }
 }
 </script>

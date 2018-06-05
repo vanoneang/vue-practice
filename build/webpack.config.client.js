@@ -19,13 +19,13 @@ const defaultPluins = [
 ]
 
 const devServer = {
-  port: 8000,
+  port: 8090,
   host: '0.0.0.0',
   overlay: {
     errors: true
   },
   historyApiFallback: {
-    index: '/public/index.html'
+    index: '/public/index.html' // 因为output有publicPath属性
   },
   hot: true
 }
