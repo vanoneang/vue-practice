@@ -7,8 +7,11 @@ import './assets/styles/global.styl'
 import createRouter from './config/router'
 import createStore from './store/index'
 
+import ModalToast from './plugin/modal-toast'
+
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(ModalToast)
 
 const router = createRouter()
 const store = createStore()
@@ -19,6 +22,12 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.title
   }
   next() // 可以加path属性跳转
+})
+
+// 每次mutation变化的回调
+store.subscribe((mutation, state) => {
+  console.log(mutation.type)
+  console.log(mutation.payload)
 })
 
 new Vue({

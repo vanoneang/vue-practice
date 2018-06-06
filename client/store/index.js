@@ -15,6 +15,7 @@ export default () => {
     mutations,
     getters,
     actions,
+    // modules: {} // 模块
     plugins: isDev ? [createLogger()] : []
   })
 

@@ -57,6 +57,9 @@ export default {
       return this.todos.filter(todo => completed === todo.completed)
     }
   },
+  mounted () {
+    this.$toast('test', 'file', 2000)
+  },
   methods: {
     addTodo (e) {
       this.todos.unshift({
