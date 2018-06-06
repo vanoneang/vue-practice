@@ -3,20 +3,20 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
 const ExtractPlugin = require('extract-text-webpack-plugin')
-const VueServerPlugin = require('vue-server-renderer/server-plugin')
+const VueServerPlugin = require('vue-server-renderer/server-plugin') // vue的服务端渲染插件
 
 let config
 
 config = merge(baseConfig, {
-  target: 'node',
-  entry: path.join(__dirname, '../client/server-entry.js'),
+  target: 'node', // 运行环境
+  entry: path.join(__dirname, '../client/server-entry.js'), // 服务端入口
   devtool: '#source-map',
   output: {
-    libraryTarget: 'commonjs2', // 用export输出
-    filename: 'server-entry.js',
-    path: path.join(__dirname, '../server-build')
+    libraryTarget: 'commonjs2', // 用module.exports输出
+    filename: 'server-entry.js', // 模块加载的，不需要缓存
+    path: path.join(__dirname, '../server-build') // 输出到server-build
   },
-  externals: Object.keys(require('../package.json').dependencies), // 不要打包里面的文件
+  externals: Object.keys(require('../package.json').dependencies), // 不要打包里面的文件，node端不需要require那么多
   module: {
     rules: [
       {
