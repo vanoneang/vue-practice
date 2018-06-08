@@ -43,7 +43,7 @@ config = merge(baseConfig, {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.env.VUE_ENV': '"server"'
     }),
-    new VueServerPlugin()
+    new VueServerPlugin() // 输出的默认的文件名是vue-ssr-server-bundle.json
   ])
 })
 
