@@ -7,8 +7,9 @@ export default context => {
 
     // 所以的异步操作做完才会回调
     router.onReady(() => {
+      // 根据url匹配组件
       const matchedComponents = router.getMatchedComponents()
-      if (matchedComponents.length) {
+      if (!matchedComponents.length) {
         return reject(new Error('no component matched'))
       }
       resolve(app)
