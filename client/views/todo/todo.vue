@@ -27,17 +27,20 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  metaInfo: {
+    title: 'todo list'
+  },
   beforeRouteEnter (to, from, next) {
     next(vm => {
       // 这样能取到this
       console.log(vm.$route.path)
     })
   },
-  beforeRouteLeave (to, from, next) {
-    if (global.confirm('are you sure?')) {
-      next()
-    }
-  },
+  // beforeRouteLeave (to, from, next) {
+  //   if (global.confirm('are you sure?')) {
+  //     next()
+  //   }
+  // },
   data () {
     return {
       todos: [],
@@ -58,7 +61,7 @@ export default {
     }
   },
   mounted () {
-    this.$toast('test', 'file', 2000)
+    // this.$toast('test', 'file', 2000)
   },
   methods: {
     addTodo (e) {
