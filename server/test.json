@@ -1,0 +1,30 @@
+{
+  "editor.fontSize": 20,
+  "files.autoSave":"onFocusChange",
+  "terminal.integrated.fontSize": 20,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "editor.wordWrap": "on",
+  "eslint.autoFixOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+          "language": "html",
+          "autoFix": true
+      },
+      {
+          "language": "vue",
+          "autoFix": true
+      }
+  ],
+  "editor.parameterHints": true,
+  "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+  }
+
+}
