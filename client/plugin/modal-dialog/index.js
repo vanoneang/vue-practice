@@ -15,13 +15,13 @@ myPlugin.install = function (vue, options) {
 
   const dialog = {
     show (options) {
-        //  把从外界传进来的参数都映射到组件对应的位置
+      //  把从外界传进来的参数都映射到组件对应的位置
       if (typeof options === 'object') {
         for (let i in options) {
           $vm[i] = options[i]
         }
       }
-        // 传出去的状态
+      // 传出去的状态
       if (typeof options === 'object' && (options.clickStatus)) {
         $vm.$once('clickStatus', (status) => {
           options.clickStatus && options.clickStatus(status)
