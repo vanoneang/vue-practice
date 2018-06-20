@@ -7,7 +7,8 @@
     <router-link to="/login">login</router-link>
     <transition name="fade">
       <keep-alive>
-        <router-view v-if="$route.meta.keepAlive"/>
+        <!-- <router-view v-if="$route.meta.keepAlive"/> -->
+        <router-view/>
       </keep-alive>
     </transition>
     <Footer></Footer>
