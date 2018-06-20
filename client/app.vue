@@ -10,7 +10,6 @@
         <router-view v-if="$route.meta.keepAlive"/>
       </keep-alive>
     </transition>
-    <!-- <notification content="test notify" /> -->
     <Footer></Footer>
   </div>
 </template>

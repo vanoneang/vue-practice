@@ -7,6 +7,7 @@ import Notification from './components/notification'
 import App from './app.vue'
 import createStore from './store'
 import createRouter from './config/router'
+import Tabs from './components/tabs'
 
 import './assets/styles/global.styl'
 
@@ -14,6 +15,7 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(Meta) // 服务端处理meta第三方插件
 Vue.use(Notification)
+Vue.use(Tabs)
 
 export default () => {
   const router = createRouter()
