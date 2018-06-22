@@ -29,8 +29,8 @@
 <script>
 import Item from './item.vue'
 import Helper from './heaper.vue'
+import {mapState, mapActions} from 'vuex'
 
-let id = 0
 export default {
   metaInfo: {
     title: 'todo list'
@@ -48,7 +48,6 @@ export default {
   // },
   data () {
     return {
-      todos: [],
       filter: 'all',
       states: ['all', 'active', 'completed']
     }
@@ -58,6 +57,7 @@ export default {
     Helper
   },
   computed: {
+    ...mapState(['todos']),
     filteredTodos () {
       if (this.filter === 'all') {
         return this.todos
@@ -68,17 +68,18 @@ export default {
   },
   mounted () {
     // this.$toast('test', 'file', 2000)
-
+    this.fetchTodos()
   },
   methods: {
-    addTodo (e) {
-      this.todos.unshift({
-        id: id++,
-        content: e.target.value.trim(),
-        completed: false
-      })
-      e.target.value = ''
-    },
+    ...mapActions(['fetchTodos']),
+    // addTodo (e) {
+    //   this.todos.unshift({
+    //     id: id++,
+    //     content: e.target.value.trim(),
+    //     completed: false
+    //   })
+    //   e.target.value = ''
+    // },
     deleteTodo (id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
