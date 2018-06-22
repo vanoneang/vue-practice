@@ -2,7 +2,7 @@
  * @Author: evan
  * @Date: 2018-06-22 09:44:46
  * @Last Modified by: evan
- * @Last Modified time: 2018-06-22 16:19:16
+ * @Last Modified time: 2018-06-22 17:11:07
  */
 
 import axios from 'axios'
@@ -12,11 +12,10 @@ const request = axios.create({
   baseURL: '/'
 })
 
-const handelRequest = () => {
+const handelRequest = (request) => {
   return new Promise((resolve, reject) => {
     request
       .then(resp => {
-        console.log(resp)
         const data = resp.data
 
         if (!data) {
@@ -28,7 +27,6 @@ const handelRequest = () => {
         resolve(data.data)
       })
       .catch(err => {
-        console.log(err)
         const resp = err.response
         if (resp.status === 401) {
           reject(createError(401, 'need auth'))
@@ -40,5 +38,8 @@ const handelRequest = () => {
 export default {
   getAllTodos () {
     return handelRequest(request.get('/api/todos'))
+  },
+  login (username, password) {
+    return handelRequest(request.post('/user/login', { username, password }))
   }
 }

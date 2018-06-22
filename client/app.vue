@@ -33,10 +33,10 @@ export default {
     Footer
   },
   mounted () {
-    this.$notify({
-      content: 'test $notify',
-      btn: 'close'
-    })
+    // this.$notify({
+    //   content: 'test $notify',
+    //   btn: 'close'
+    // })
     this.updateCountAsync({
       num: 2018,
       time: 2000
