@@ -2,7 +2,7 @@
  * @Author: evan
  * @Date: 2018-06-22 09:44:46
  * @Last Modified by: evan
- * @Last Modified time: 2018-06-22 10:41:38
+ * @Last Modified time: 2018-06-22 16:19:16
  */
 
 import axios from 'axios'
@@ -16,9 +16,9 @@ const handelRequest = () => {
   return new Promise((resolve, reject) => {
     request
       .then(resp => {
+        console.log(resp)
         const data = resp.data
-        /* eslint-disable */
-        debugger
+
         if (!data) {
           reject(createError(400, 'no data'))
         }
@@ -28,8 +28,7 @@ const handelRequest = () => {
         resolve(data.data)
       })
       .catch(err => {
-        /* eslint-disable */
-        debugger
+        console.log(err)
         const resp = err.response
         if (resp.status === 401) {
           reject(createError(401, 'need auth'))

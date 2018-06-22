@@ -5,7 +5,7 @@ const apiRouter = new Router({ prefix: '/api' })
 const validateUser = async (ctx, next) => {
   if (!ctx.session.user) {
     ctx.status = 401
-    ctx.body = 'no permissions'
+    ctx.body = 'no permissions 1'
   } else {
     await next()
   }

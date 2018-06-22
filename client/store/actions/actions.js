@@ -21,6 +21,7 @@ export default { // 处理异步修改数据
         commit('fillTodos', data)
       })
       .catch(err => {
+        console.log('err 111')
         handleError(err)
       })
   }
