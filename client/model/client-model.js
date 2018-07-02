@@ -2,7 +2,7 @@
  * @Author: evan
  * @Date: 2018-06-22 09:44:46
  * @Last Modified by: evan
- * @Last Modified time: 2018-06-22 17:11:07
+ * @Last Modified time: 2018-07-02 10:37:48
  */
 
 import axios from 'axios'
@@ -12,7 +12,7 @@ const request = axios.create({
   baseURL: '/'
 })
 
-const handelRequest = (request) => {
+const handleRequest = (request) => {
   return new Promise((resolve, reject) => {
     request
       .then(resp => {
@@ -37,9 +37,21 @@ const handelRequest = (request) => {
 
 export default {
   getAllTodos () {
-    return handelRequest(request.get('/api/todos'))
+    return handleRequest(request.get('/api/todos'))
   },
   login (username, password) {
-    return handelRequest(request.post('/user/login', { username, password }))
+    return handleRequest(request.post('/user/login', { username, password }))
+  },
+  updateTodo (id, todo) {
+    return handleRequest(request.put(`/api/todo/${id}`, todo))
+  },
+  createTodo (todo) {
+    return handleRequest(request.post('/api/todo', todo))
+  },
+  deleteTodo (id) {
+    return handleRequest(request.delete(`/api/todo/${id}`))
+  },
+  deleteAllCompleted (ids) {
+    return handleRequest(request.post('/api/delete/completed', { ids }))
   }
 }

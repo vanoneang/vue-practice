@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <div id="cover"></div>
+    <div id="loading" v-show="loading">
+      <loading></loading>
+    </div>
     <Header></Header>
     <p>{{count}}</p>
     <router-link :to="{name:'app'}">app</router-link>
     <router-link to="/login">login</router-link>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <keep-alive>
         <!-- <router-view v-if="$route.meta.keepAlive"/> -->
         <router-view/>
@@ -23,6 +26,7 @@ import {
 } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
+import Loading from './components/loading/loading.vue'
 
 export default {
   metaInfo: {
@@ -30,7 +34,8 @@ export default {
   },
   components: {
     Header,
-    Footer
+    Footer,
+    Loading
   },
   mounted () {
     // this.$notify({
@@ -43,7 +48,7 @@ export default {
     })
   },
   computed: {
-    ...mapState(['count']),
+    ...mapState(['count', 'loading']),
     ...mapGetters(['fullName'])
   },
   methods: {
@@ -69,6 +74,18 @@ export default {
   background-color #999
   opacity .9
   z-index -1
+}
+#loading{
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background-color rgba(255,255,255,.3)
+  z-index 99
+  display flex
+  align-items center
+  justify-content center
 }
 </style>
 
