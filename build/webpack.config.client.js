@@ -9,7 +9,7 @@ const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 
 const defaultPluins = [
-  new webpack.DefinePlugin({
+  new webpack.DefinePlugin({ // 在页面（前端业务）中能够使用process.env
     'process.env': {
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
@@ -23,7 +23,7 @@ const defaultPluins = [
 const devServer = {
   port: 8090,
   host: '0.0.0.0',
-  overlay: {
+  overlay: { // 错误显示到网页上
     errors: true
   },
   headers: { 'Access-Control-Allow-Origin': '*' },
@@ -34,14 +34,14 @@ const devServer = {
     '/api': 'http://127.0.0.1:3333',
     '/user': 'http://127.0.0.1:3333'
   },
-  hot: true
+  hot: true // 热更替
 }
 
 let config
 
 if (isDev) {
   config = merge(baseConfig, {
-    devtool: '#cheap-module-eval-source-map',
+    devtool: '#cheap-module-eval-source-map', // 页面调试的时候用source-map
     module: {
       rules: [
         {
@@ -70,7 +70,7 @@ if (isDev) {
   config = merge(baseConfig, {
     entry: {
       app: path.join(__dirname, '../client/client-entry.js'),
-      vendor: ['vue']
+      vendor: ['vue'] // 单独打包vue框架文件
     },
     output: {
       filename: '[name].[chunkhash:8].js',
