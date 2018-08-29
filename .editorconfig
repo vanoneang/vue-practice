@@ -1,5 +1,5 @@
 root = true
-
+# 需要配合EsitorConfig for VS Code插件
 [*]
 charset = utf-8
 indent_style = space
